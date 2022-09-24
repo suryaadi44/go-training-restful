@@ -1,15 +1,8 @@
 package database
 
 import (
-	"errors"
-
 	"github.com/suryaadi44/go-training-restful/config"
 	"github.com/suryaadi44/go-training-restful/models"
-)
-
-var (
-	// ErrInvalidID is returned when an invalid ID is provided to a method like Delete.
-	ErrInvalidID = errors.New("provided id was invalid")
 )
 
 func GetUsers() (interface{}, error) {
