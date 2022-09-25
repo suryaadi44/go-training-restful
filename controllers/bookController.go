@@ -67,7 +67,7 @@ func DeleteBookController(c echo.Context) error {
 
 	err = database.DeleteBook(id)
 	if err != nil {
-		if err == gorm.ErrRecordNotFound {
+		if err == database.ErrInvalidID {
 			return echo.NewHTTPError(http.StatusNotFound, err.Error())
 		}
 
@@ -90,7 +90,7 @@ func UpdateBookController(c echo.Context) error {
 
 	updatedBook, err := database.UpdateBook(id, book)
 	if err != nil {
-		if err == gorm.ErrRecordNotFound {
+		if err == database.ErrInvalidID {
 			return echo.NewHTTPError(http.StatusNotFound, err.Error())
 		}
 
